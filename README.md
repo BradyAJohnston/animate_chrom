@@ -14,5 +14,9 @@ Inputs required will be:
 ### What it does
 Iterares through the image, goes down each line of pixels until it finds the first data and logs the y position.
 
+Taking this data, prints a .txt file with the format "mset *frame* x3".
+
+### Pymol
+Pasting this text file into pymol console, with animation with 100 frames.
 
 
