@@ -24,7 +24,7 @@ def get_data(im, x_range, x_offset, y_range, y_offset):
     y_data = (y_data / height) * y_range + y_offset
     return x_data, y_data
 
-im = Image.open('movies/600w/chromatogramAsset 1.png')
+im = Image.open('/Users/brady/Dropbox/BondLab/Data/smFRET_bishnu/movies/600w/chromatogramAsset 1.png')
 x_data, y_data = get_data(im,600/1,1,200-0,0)
 
 def truncate(n, decimals=0):
@@ -34,3 +34,15 @@ def truncate(n, decimals=0):
 for i in range(len(x_data)):
     print(truncate(x_data[i]))
 
+
+
+tx = open("pymol_frames.txt","a")
+tx.truncate(0)
+tx.write("mset ")
+
+for i in range(len(x_data)):
+    frame = truncate(y_data[i] / 2, 0)
+    tx.write(f'{frame} x3, ')
+    print(str(towrite))
+    
+tx.close()
